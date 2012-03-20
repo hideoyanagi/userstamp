@@ -85,8 +85,8 @@ module Ddb #:nodoc:
 
           class_eval do
             klass = "::#{stamper_class_name.to_s.singularize.camelize}"
-            belongs_to :creator, :class_name => klass, :foreign_key => creator_attribute
-            belongs_to :updater, :class_name => klass, :foreign_key => updater_attribute
+            belongs_to :creator, :class_name => klass, :primary_key => :email, :foreign_key => creator_attribute
+            belongs_to :updater, :class_name => klass, :primary_key => :email, :foreign_key => updater_attribute
 
             before_validation :set_updater_attribute
             before_validation :set_creator_attribute, :on => :create
