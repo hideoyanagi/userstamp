@@ -72,9 +72,9 @@ module Ddb #:nodoc:
           compatability = Ddb::Userstamp.compatibility_mode
           defaults  = {
             :stamper_class_name => :user,
-            :creator_attribute  => (compatability ? :created_by : :creator_id),
-            :updater_attribute  => (compatability ? :updated_by : :updater_id),
-            :deleter_attribute  => (compatability ? :deleted_by : :deleter_id),
+            :creator_attribute  => :created_by,
+            :updater_attribute  => :updated_by,
+            :deleter_attribute  => :deleted_by,
             :deleter            => !!(options.has_key?(:deleter_attribute) or defined?(Caboose::Acts::Paranoid))
           }.merge(options)
 
